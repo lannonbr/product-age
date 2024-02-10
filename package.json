@@ -1,0 +1,52 @@
+{
+  "name": "product-age",
+  "description": "",
+  "author": "Benjamin Lannon",
+  "version": "0.1.0",
+  "homepage": "",
+  "license": "",
+  "main": "app.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.4.1",
+    "less": "~4.2.0",
+    "roosevelt": "~0.21.0",
+    "source-configs": "^0.3.6",
+    "teddy": "~0.6.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-html": "~7.1.0",
+    "nodemon": "~3.0.0",
+    "postcss-less": "~6.0.0",
+    "prettier": "^3.2.5",
+    "stylelint": "~15.11.0",
+    "stylelint-config-standard": "~34.0.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "public/",
+      "jsdoc/"
+    ],
+    "ext": "less html js json"
+  },
+  "private": true,
+  "scripts": {
+    "audit-config": "node ./node_modules/roosevelt/lib/scripts/configAuditor.js",
+    "d": "nodemon app.js --development-mode",
+    "dev": "nodemon app.js --development-mode",
+    "development": "nodemon app.js --development-mode",
+    "lint": "npx prettier . --check && npm run stylelint",
+    "p": "nodemon app.js --production-mode",
+    "prod": "nodemon app.js --production-mode",
+    "production": "nodemon app.js --production-mode",
+    "x": "nodemon app.js --production-proxy-mode",
+    "prodproxy": "nodemon app.js --production-proxy-mode",
+    "production-proxy": "nodemon app.js --production-proxy-mode",
+    "start": "nodemon app.js --production-mode",
+    "stylelint": "./node_modules/.bin/stylelint \"statics/css/**/*.less\"",
+    "test": "npm run lint"
+  }
+}

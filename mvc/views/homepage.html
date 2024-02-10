@@ -1,0 +1,28 @@
+<include src="layouts/main">
+  <arg pageContent>
+    <article id="homepage">
+      <p>
+        A listing of mainly tech products and when I bought them and how old
+        they are
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Purchase Date</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <loop through="content.products" val="product">
+            <tr>
+              <td>{product.name}</td>
+              <td>{product.purchaseDate}</td>
+              <td>{product.age}</td>
+            </tr>
+          </loop>
+        </tbody>
+      </table>
+    </article>
+  </arg>
+</include>
