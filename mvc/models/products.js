@@ -9,13 +9,16 @@ function getProducts() {
 
   products = products.map((product) => {
     let days = dayjs().diff(dayjs(product.purchaseDate), "days");
+    const originalDays = days;
+
     let years = 0;
     if (days > 365) {
       years = Math.floor(days / 365);
       days = days % 365;
     }
 
-    product.age = `${years != 0 ? years + " years, " : ""} ${days} days`;
+    product.days = originalDays;
+    product.age = `${years != 0 ? years + " years," : ""} ${days} days`;
 
     return product;
   });
