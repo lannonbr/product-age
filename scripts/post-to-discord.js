@@ -14,7 +14,7 @@ async function run() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          content: `You got ${product.name} is ${product.days / 365} years ago today`,
+          content: `You got ${product.name} ${product.days / 365} years ago today`,
         }),
       });
     }
