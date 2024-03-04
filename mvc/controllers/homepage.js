@@ -5,4 +5,10 @@ module.exports = (router, app) => {
     model.content.pageTitle = "Homepage";
     res.render("homepage", model);
   });
+
+  router.route("/products").get((req, res) => {
+    const products = require("models/products").getProducts();
+
+    res.json(products);
+  });
 };
