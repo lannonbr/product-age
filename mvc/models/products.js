@@ -20,6 +20,8 @@ function getProducts() {
     product.days = originalDays;
     product.age = `${years != 0 ? years + " years," : ""} ${days} days`;
 
+    product.anniv = days === 0;
+
     return product;
   });
 
