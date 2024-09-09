@@ -21,6 +21,12 @@ function getProducts() {
     product.age = `${years != 0 ? years + " years," : ""} ${days} days`;
 
     product.anniv = days === 0;
+    product.weeklyCost = (product.purchasePrice / (originalDays / 7)).toFixed(
+      2
+    );
+    product.monthlyCost = (product.purchasePrice / (originalDays / 30)).toFixed(
+      2
+    );
 
     return product;
   });
