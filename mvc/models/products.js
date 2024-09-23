@@ -27,6 +27,12 @@ function getProducts() {
     product.monthlyCost = (product.purchasePrice / (originalDays / 30)).toFixed(
       2
     );
+    if (originalDays < 30) {
+      product.monthlyCost = product.purchasePrice;
+    }
+    if (originalDays < 7) {
+      product.weeklyCost = product.purchasePrice;
+    }
 
     return product;
   });
