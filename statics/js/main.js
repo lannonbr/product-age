@@ -1,9 +1,15 @@
 // replace no-js class with js class which allows us to write css that targets non-js or js enabled users separately
 document.body.classList.replace("no-js", "js");
 
+const routePrefix = document
+  .querySelector("meta[name='routePrefix']")
+  .getAttribute("content");
+
 async function run() {
   const { Chart } = await import("chart.js/auto");
-  const data = await fetch("/products").then((resp) => resp.json());
+  const data = await fetch(`${routePrefix}/products`).then((resp) =>
+    resp.json()
+  );
 
   let groupByWeekPrice = new Map();
   let weekPriceVals = [
