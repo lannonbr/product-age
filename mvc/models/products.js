@@ -1,7 +1,7 @@
 const dayjs = require("dayjs");
 
 function getProducts() {
-  let products = require("./products.json");
+  let products = require("./data/products.json");
 
   products = products.sort((a, b) => {
     return dayjs(a.purchaseDate).diff(dayjs(b.purchaseDate));

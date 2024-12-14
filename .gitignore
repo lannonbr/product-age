@@ -109,4 +109,4 @@ temp/
 # Public directory
 public
 
-mvc/models/products.json
+mvc/models/data/
