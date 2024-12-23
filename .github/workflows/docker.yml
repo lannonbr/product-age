@@ -33,9 +33,8 @@ jobs:
           push: true
           tags: ghcr.io/lannonbr/product-age:${{ github.ref_name }}
       - name: Prune old images
-        run: |
-          cd .github/actions/prune-containers
-          npm install
-          node index.js
+        uses: lannonbr/prune-containers-action@1.0.1
+        with:
+          container-name: product-age
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
