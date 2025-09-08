@@ -18,7 +18,7 @@
           </thead>
           <tbody>
             <loop through="content.products" val="product">
-              <tr if-product.anniv true="class='anniv'">
+              <tr if-product.annivClass true="class='{product.annivClass}'">
                 <td>{product.name}</td>
                 <td>{product.purchaseDate}</td>
                 <td>{product.age}</td>
