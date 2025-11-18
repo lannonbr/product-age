@@ -32,8 +32,8 @@ function getProducts() {
 
     // If the days remainder is above 335 days (1 year - 30 days) set the class to 'close'
     // but if it is exactly 0, set it to 'anniv'
-    product.annivClass = days > 335 ? "close" : "";
-    product.annivClass = days === 0 ? "anniv" : product.annivClass;
+    product.annivClass = modDays > 335 ? "close" : "";
+    product.annivClass = modDays === 0 ? "anniv" : product.annivClass;
 
     product.weeklyCost = (product.purchasePrice / (originalDays / 7)).toFixed(
       2
