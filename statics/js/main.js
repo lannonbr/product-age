@@ -25,7 +25,7 @@ async function run() {
     if (vals.length == 3) {
       groupByWeekPrice.set(
         vals[0],
-        data.filter(
+        data.products.filter(
           (item) =>
             parseFloat(item.weeklyCost) >= vals[1] &&
             parseFloat(item.weeklyCost) < vals[2]
@@ -34,7 +34,8 @@ async function run() {
     } else {
       groupByWeekPrice.set(
         vals[0],
-        data.filter((item) => parseFloat(item.weeklyCost) >= vals[1]).length
+        data.products.filter((item) => parseFloat(item.weeklyCost) >= vals[1])
+          .length
       );
     }
   }
@@ -54,7 +55,7 @@ async function run() {
     if (vals.length == 3) {
       groupByAge.set(
         vals[0],
-        data.filter(
+        data.products.filter(
           (item) =>
             parseFloat(item.days) >= vals[1] && parseFloat(item.days) < vals[2]
         ).length
@@ -62,7 +63,7 @@ async function run() {
     } else {
       groupByAge.set(
         vals[0],
-        data.filter((item) => parseFloat(item.days) >= vals[1]).length
+        data.products.filter((item) => parseFloat(item.days) >= vals[1]).length
       );
     }
   }

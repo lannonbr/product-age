@@ -1,5 +1,16 @@
 const dayjs = require("dayjs");
 
+function daysToFormatted(days) {
+  let innerDays = days;
+  let years = 0;
+  if (innerDays > 365) {
+    years = Math.floor(innerDays / 365);
+    innerDays = innerDays % 365;
+  }
+
+  return { days: innerDays, years };
+}
+
 function getProducts() {
   let products = require("./data/products.json");
 
@@ -7,18 +18,17 @@ function getProducts() {
     return dayjs(a.purchaseDate).diff(dayjs(b.purchaseDate));
   });
 
+  let avgDays = 0;
+
   products = products.map((product) => {
     let days = dayjs().diff(dayjs(product.purchaseDate), "days");
     const originalDays = days;
 
-    let years = 0;
-    if (days > 365) {
-      years = Math.floor(days / 365);
-      days = days % 365;
-    }
+    let { days: modDays, years } = daysToFormatted(days);
 
     product.days = originalDays;
-    product.age = `${years != 0 ? years + " years," : ""} ${days} days`;
+    avgDays += originalDays;
+    product.age = `${years != 0 ? years + " years," : ""} ${modDays} days`;
 
     // If the days remainder is above 335 days (1 year - 30 days) set the class to 'close'
     // but if it is exactly 0, set it to 'anniv'
@@ -41,7 +51,13 @@ function getProducts() {
     return product;
   });
 
-  return products;
+  avgDays = Math.floor(avgDays / products.length);
+
+  let { days: modDays, years } = daysToFormatted(avgDays);
+
+  let avgDaysStr = `${years != 0 ? years + " years," : ""} ${modDays} days`;
+
+  return { products, avgDays: avgDaysStr };
 }
 
 module.exports = {
