@@ -1,5 +1,5 @@
 module.exports = (router, app) => {
-  router.route("*").all((req, res) => {
+  router.route("*all").all((req, res) => {
     const model = require("models/global")(req, res);
     model.content.pageTitle = "Not Found";
     model.server = require("models/server")(req, res);

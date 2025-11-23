@@ -1,5 +1,7 @@
 {
-  "port": 3006,
+  "http": {
+    "port": 3006
+  },
   "makeBuildArtifacts": true,
   "https": {
     "enable": false
@@ -8,6 +10,8 @@
   "viewsPath": "mvc/views",
   "viewEngine": ["html:teddy"],
   "controllersPath": "mvc/controllers",
+  "preprocessedViewsPath": false,
+  "csrfProtection": false,
   "css": {
     "sourcePath": "css",
     "compiler": {

@@ -13,10 +13,11 @@
     "chart.js": "^4.5.1",
     "dayjs": "^1.11.19",
     "dotenv": "^17.2.3",
-    "less": "~4.2.2",
-    "roosevelt": "~0.21.16",
+    "less": "~4.4.2",
+    "roosevelt": "~0.30.7",
     "source-configs": "^1.0.0",
-    "teddy": "~1.1.4"
+    "teddy": "~1.1.4",
+    "webpack": "^5.103.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -39,7 +40,6 @@
   },
   "private": true,
   "scripts": {
-    "audit-config": "node ./node_modules/roosevelt/lib/scripts/configAuditor.js",
     "dev": "nodemon app.js --development-mode",
     "lint": "npx prettier . --check && npm run stylelint && npm run eslint",
     "prod": "nodemon app.js --production-mode",
