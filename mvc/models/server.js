@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+module.exports = (req) => {
   return {
     currentYear: new Date().getFullYear(),
     mainDomain: req.headers["x-forwarded-host"] || req.headers.host,

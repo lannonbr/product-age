@@ -7,9 +7,9 @@ const routePrefix = document
 
 async function run() {
   const { Chart } = await import("chart.js/auto");
-  const data = await fetch(`${routePrefix}/products`).then((resp) =>
-    resp.json()
-  );
+  const data = await fetch(`${routePrefix}/products`).then((resp) => {
+    return resp.json();
+  });
 
   let groupByWeekPrice = new Map();
   let weekPriceVals = [
@@ -28,14 +28,14 @@ async function run() {
         data.products.filter(
           (item) =>
             parseFloat(item.weeklyCost) >= vals[1] &&
-            parseFloat(item.weeklyCost) < vals[2]
-        ).length
+            parseFloat(item.weeklyCost) < vals[2],
+        ).length,
       );
     } else {
       groupByWeekPrice.set(
         vals[0],
         data.products.filter((item) => parseFloat(item.weeklyCost) >= vals[1])
-          .length
+          .length,
       );
     }
   }
@@ -57,13 +57,13 @@ async function run() {
         vals[0],
         data.products.filter(
           (item) =>
-            parseFloat(item.days) >= vals[1] && parseFloat(item.days) < vals[2]
-        ).length
+            parseFloat(item.days) >= vals[1] && parseFloat(item.days) < vals[2],
+        ).length,
       );
     } else {
       groupByAge.set(
         vals[0],
-        data.products.filter((item) => parseFloat(item.days) >= vals[1]).length
+        data.products.filter((item) => parseFloat(item.days) >= vals[1]).length,
       );
     }
   }

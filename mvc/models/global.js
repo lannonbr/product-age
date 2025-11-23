@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+module.exports = () => {
   return {
     content: {
       appTitle: "Product Age",

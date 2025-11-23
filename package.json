@@ -10,25 +10,25 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "chart.js": "^4.4.4",
-    "dayjs": "^1.11.11",
-    "dotenv": "^16.4.5",
-    "less": "~4.2.0",
+    "chart.js": "^4.5.1",
+    "dayjs": "^1.11.19",
+    "dotenv": "^17.2.3",
+    "less": "~4.2.2",
     "roosevelt": "~0.21.16",
-    "source-configs": "^0.3.6",
-    "teddy": "~0.6.7"
+    "source-configs": "^1.0.0",
+    "teddy": "~1.1.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.6.0",
-    "eslint": "^9.6.0",
-    "eslint-plugin-depend": "^0.8.0",
-    "eslint-plugin-html": "~8.1.1",
-    "globals": "^15.8.0",
-    "nodemon": "~3.1.4",
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-depend": "^1.4.0",
+    "eslint-plugin-html": "~8.1.3",
+    "globals": "^16.5.0",
+    "nodemon": "~3.1.11",
     "postcss-less": "~6.0.0",
-    "prettier": "^3.3.2",
-    "stylelint": "~16.6.1",
-    "stylelint-config-standard": "~36.0.1"
+    "prettier": "^3.6.2",
+    "stylelint": "~16.26.0",
+    "stylelint-config-standard": "~39.0.1"
   },
   "nodemonConfig": {
     "ignore": [
@@ -40,17 +40,10 @@
   "private": true,
   "scripts": {
     "audit-config": "node ./node_modules/roosevelt/lib/scripts/configAuditor.js",
-    "d": "nodemon app.js --development-mode",
     "dev": "nodemon app.js --development-mode",
-    "development": "nodemon app.js --development-mode",
     "lint": "npx prettier . --check && npm run stylelint && npm run eslint",
-    "p": "nodemon app.js --production-mode",
     "prod": "nodemon app.js --production-mode",
     "eslint": "./node_modules/.bin/eslint .",
-    "production": "nodemon app.js --production-mode",
-    "x": "nodemon app.js --production-proxy-mode",
-    "prodproxy": "nodemon app.js --production-proxy-mode",
-    "production-proxy": "nodemon app.js --production-proxy-mode",
     "start": "nodemon app.js --production-mode",
     "stylelint": "./node_modules/.bin/stylelint \"statics/css/**/*.less\"",
     "test": "npm run lint"

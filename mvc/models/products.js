@@ -36,10 +36,10 @@ function getProducts() {
     product.annivClass = modDays === 0 ? "anniv" : product.annivClass;
 
     product.weeklyCost = (product.purchasePrice / (originalDays / 7)).toFixed(
-      2
+      2,
     );
     product.monthlyCost = (product.purchasePrice / (originalDays / 30)).toFixed(
-      2
+      2,
     );
     if (originalDays < 30) {
       product.monthlyCost = product.purchasePrice;
