@@ -1,7 +1,7 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import { globalIgnores } from "eslint/config";
-import { configs as dependConfigs } from "eslint-plugin-depend";
+import e18e from "@e18e/eslint-plugin";
 
 export default [
   {
@@ -13,6 +13,6 @@ export default [
   { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
-  dependConfigs["flat/recommended"],
+  e18e.configs.recommended,
   globalIgnores(["public/"]),
 ];
