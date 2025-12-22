@@ -14,7 +14,7 @@
     "dayjs": "^1.11.19",
     "dotenv": "^17.2.3",
     "less": "~4.5.1",
-    "roosevelt": "~0.30.7",
+    "roosevelt": "~0.31.7",
     "source-configs": "^1.0.0",
     "teddy": "~1.1.4",
     "webpack": "^5.104.1"

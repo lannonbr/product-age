@@ -12,6 +12,7 @@
   "controllersPath": "mvc/controllers",
   "preprocessedViewsPath": false,
   "csrfProtection": false,
+  "expressSession": false,
   "css": {
     "sourcePath": "css",
     "compiler": {
