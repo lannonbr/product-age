@@ -80,6 +80,11 @@ async function run() {
         },
       ],
     },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      resizeDelay: 0,
+    },
   });
 
   let ageChart = document.getElementById("ageChart");
@@ -93,6 +98,11 @@ async function run() {
           data: [...groupByAge.values()],
         },
       ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      resizeDelay: 0,
     },
   });
 }

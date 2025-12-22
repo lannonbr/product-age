@@ -25,13 +25,45 @@ tr.close {
   background-color: #fff085;
 }
 
-#mainContent {
-  display: flex;
-  column-gap: 1em;
+header,
+#contentWrapper {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-#mainContent div {
+#mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+#chartsContainer {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+#chartsContainer section {
   flex: 1;
+  max-width: 100%;
+  
+  canvas {
+    max-width: 100%;
+  }
+}
+
+#tableContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#tableContainer table {
+  width: 100%;
 }
 
 @media (width <= 1200px) {
@@ -39,26 +71,41 @@ tr.close {
     display: block;
   }
 
-  #mainContent table {
+  #chartsContainer {
+    display: block;
+    margin-bottom: 2em;
+  }
+
+  #chartsContainer section {
+    max-width: 100%;
+    margin-bottom: 2em;
+  }
+
+  #tableContainer {
+    display: block;
+  }
+
+  #tableContainer table {
     width: 100%;
     border: 0;
     position: relative;
+    max-width: 100%;
   }
 
-  #mainContent table thead th {
+  #tableContainer table thead th {
     position: sticky;
     top: 0;
     background-color: white;
   }
 
-  #mainContent td {
+  #tableContainer td {
     padding: 8px;
   }
 
-  #mainContent tr th:nth-child(2),
-  #mainContent tr td:nth-child(2),
-  #mainContent tr th:nth-child(4),
-  #mainContent tr td:nth-child(4) {
+  #tableContainer tr th:nth-child(2),
+  #tableContainer tr td:nth-child(2),
+  #tableContainer tr th:nth-child(4),
+  #tableContainer tr td:nth-child(4) {
     display: none;
   }
 }
