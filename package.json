@@ -1,22 +1,30 @@
 {
   "name": "product-age",
-  "description": "",
-  "author": "Benjamin Lannon",
   "version": "0.1.0",
-  "homepage": "",
-  "license": "",
-  "main": "app.js",
+  "main": "index.js",
   "engines": {
     "node": ">=18.0.0"
   },
+  "scripts": {
+    "dev": "nodemon app.js",
+    "lint": "npx prettier . --check && npm run stylelint && npm run eslint",
+    "eslint": "./node_modules/.bin/eslint .",
+    "stylelint": "./node_modules/.bin/stylelint \"statics/css/**/*.css\"",
+    "test": "npm run lint"
+  },
+  "author": "Benjamin Lannon",
+  "license": "MIT",
+  "description": "A small app to check how old my tech products I own are.",
+  "type": "module",
   "dependencies": {
+    "@fastify/static": "^8.3.0",
+    "@fastify/view": "^11.1.1",
     "chart.js": "^4.5.1",
     "dayjs": "^1.11.19",
     "dotenv": "^17.2.3",
+    "fastify": "^5.6.2",
     "less": "~4.5.1",
-    "roosevelt": "~0.31.7",
-    "source-configs": "^1.0.0",
-    "teddy": "~1.1.4",
+    "liquidjs": "^10.24.0",
     "webpack": "^5.104.1"
   },
   "devDependencies": {
@@ -33,19 +41,9 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "public/",
-      "jsdoc/"
+      "public/"
     ],
-    "ext": "less html js json"
+    "ext": "liquid html js json"
   },
-  "private": true,
-  "scripts": {
-    "dev": "nodemon app.js --development-mode",
-    "lint": "npx prettier . --check && npm run stylelint && npm run eslint",
-    "prod": "nodemon app.js --production-mode",
-    "eslint": "./node_modules/.bin/eslint .",
-    "start": "nodemon app.js --production-mode",
-    "stylelint": "./node_modules/.bin/stylelint \"statics/css/**/*.less\"",
-    "test": "npm run lint"
-  }
+  "private": true
 }

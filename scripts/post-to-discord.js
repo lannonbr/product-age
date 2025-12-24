@@ -1,10 +1,10 @@
-require("dotenv").config();
+import "dotenv/config";
+import { getProducts } from "../models/products.js";
+
 const discordWebhookURL = process.env.DISCORD_WEBHOOK_URL;
 
-const { getProducts } = require("../mvc/models/products");
-
 async function run() {
-  const products = getProducts();
+  const { products } = await getProducts();
 
   for (const product of products) {
     if (product.days % 365 == 0) {

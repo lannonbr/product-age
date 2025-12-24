@@ -5,7 +5,7 @@ A small app to check how old my tech products I own are.
 ## Setup
 
 - Clone this repo.
-- Create a JSON file at `mvc/models/data/products.json` with an array of products as such:
+- Create a JSON file at `data/products.json` with an array of products as such:
 
 ```json
 [
@@ -19,4 +19,4 @@ A small app to check how old my tech products I own are.
 - Install dependencies: `npm install`
 - Run the app: `npm run dev` or `npm run prod`
 
-This is a Roosevelt app. See the [docs](https://github.com/rooseveltframework/roosevelt#available-npm-scripts) for more information about configuring and running the app.
+This is a Fastify app. See the [docs](https://www.fastify.io/docs/latest/) for more information about configuring and running the app.
