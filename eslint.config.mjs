@@ -10,7 +10,6 @@ export default [
       globals: globals.browser,
     },
   },
-  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
   e18e.configs.recommended,

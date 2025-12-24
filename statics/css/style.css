@@ -50,7 +50,7 @@ header,
 #chartsContainer section {
   flex: 1;
   max-width: 100%;
-  
+
   canvas {
     max-width: 100%;
   }

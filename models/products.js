@@ -1,4 +1,4 @@
-const dayjs = require("dayjs");
+import dayjs from "dayjs";
 
 function daysToFormatted(days) {
   let innerDays = days;
@@ -11,8 +11,10 @@ function daysToFormatted(days) {
   return { days: innerDays, years };
 }
 
-function getProducts() {
-  let products = require("./data/products.json");
+async function getProducts() {
+  let { default: products } = await import("../data/products.json", {
+    with: { type: "json" },
+  });
 
   products = products.sort((a, b) => {
     return dayjs(a.purchaseDate).diff(dayjs(b.purchaseDate));
@@ -36,10 +38,10 @@ function getProducts() {
     product.annivClass = modDays === 0 ? "anniv" : product.annivClass;
 
     product.weeklyCost = (product.purchasePrice / (originalDays / 7)).toFixed(
-      2,
+      2
     );
     product.monthlyCost = (product.purchasePrice / (originalDays / 30)).toFixed(
-      2,
+      2
     );
     if (originalDays < 30) {
       product.monthlyCost = product.purchasePrice;
@@ -60,6 +62,4 @@ function getProducts() {
   return { products, avgDays: avgDaysStr };
 }
 
-module.exports = {
-  getProducts,
-};
+export { getProducts };

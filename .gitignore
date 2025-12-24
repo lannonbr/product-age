@@ -105,8 +105,8 @@ node_modules/
 tmp/
 temp/
 
-### Roosevelt ###
 # Public directory
 public
 
-mvc/models/data/
+# Data directory
+data
