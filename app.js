@@ -55,7 +55,11 @@ function buildClientsideAssets() {
 
 buildClientsideAssets();
 
-const app = fastify();
+const app = fastify({
+  routerOptions: {
+    ignoreTrailingSlash: true,
+  },
+});
 
 app.register(fastifyStatic, {
   root: publicPath,
