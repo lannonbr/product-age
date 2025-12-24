@@ -17,6 +17,14 @@ const publicPath = join(__dirname, "public");
 
 const routePrefix = process.env.PRODUCT_AGE_ROUTE_PREFIX || "";
 
+function getRoutePath(path = "") {
+  const basePath = routePrefix ? `/${routePrefix}` : "/";
+  if (!path) {
+    return basePath;
+  }
+  return routePrefix ? `/${routePrefix}/${path}` : `/${path}`;
+}
+
 function buildClientsideAssets() {
   // copy files from staticsPath to publicPath, make publicPath if it doesn't exist yet
   if (!existsSync(publicPath)) {
@@ -51,7 +59,7 @@ const app = fastify();
 
 app.register(fastifyStatic, {
   root: publicPath,
-  prefix: routePrefix ? `/${routePrefix}` : "/",
+  prefix: getRoutePath(),
 });
 
 app.register(fastifyView, {
@@ -63,7 +71,7 @@ app.register(fastifyView, {
   },
 });
 
-app.get(routePrefix ? `/${routePrefix}` : "/", async (req, reply) => {
+app.get(getRoutePath(), async (req, reply) => {
   try {
     const { products, avgDays } = await getProducts();
 
@@ -83,19 +91,16 @@ app.get(routePrefix ? `/${routePrefix}` : "/", async (req, reply) => {
   }
 });
 
-app.get(
-  routePrefix ? `/${routePrefix}/products` : "/products",
-  async (req, res) => {
-    const products = await getProducts();
+app.get(getRoutePath("products"), async (req, res) => {
+  const products = await getProducts();
 
-    res.send(products);
-  }
-);
+  res.send(products);
+});
 
 app.listen({ port: 3006, host: "0.0.0.0" }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
   }
-  console.log(`Server is running on ${address}`);
+  console.log(`Server is running on ${address}${getRoutePath()}`);
 });
