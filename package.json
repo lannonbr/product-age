@@ -17,7 +17,7 @@
   "description": "A small app to check how old my tech products I own are.",
   "type": "module",
   "dependencies": {
-    "@fastify/static": "^8.3.0",
+    "@fastify/static": "9.0.0",
     "@fastify/view": "^11.1.1",
     "chart.js": "^4.5.1",
     "dayjs": "^1.11.19",
