@@ -1,4 +1,3 @@
-import "dotenv/config";
 import { getProducts } from "../models/products.js";
 
 const discordWebhookURL = process.env.DISCORD_WEBHOOK_URL;
