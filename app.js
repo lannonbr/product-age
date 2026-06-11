@@ -33,6 +33,7 @@ function buildClientsideAssets() {
   cpSync(join(staticsPath, "css"), join(publicPath, "css"), {
     recursive: true,
   });
+  cpSync(join(staticsPath, "favicon.svg"), join(publicPath, "favicon.svg"));
 
   // build js bundle with webpack
   const compiler = webpack({
@@ -88,6 +89,7 @@ app.get(getRoutePath(), async (req, reply) => {
       products,
       avgDays,
       routePrefix,
+      basePath: routePrefix ? `/${routePrefix}` : "",
     });
   } catch (error) {
     console.error("Error rendering view:", error);
