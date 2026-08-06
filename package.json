@@ -17,23 +17,23 @@
   "description": "A small app to check how old my tech products I own are.",
   "type": "module",
   "dependencies": {
-    "@fastify/static": "^10.1.0",
+    "@fastify/static": "^10.1.2",
     "@fastify/view": "^12.0.0",
     "chart.js": "^4.5.1",
     "dayjs": "^1.11.21",
-    "fastify": "^5.10.0",
-    "liquidjs": "^10.27.2",
-    "webpack": "^5.108.4"
+    "fastify": "^5.11.2",
+    "liquidjs": "^10.28.0",
+    "webpack": "^5.109.2"
   },
   "devDependencies": {
-    "@e18e/eslint-plugin": "^0.5.1",
+    "@e18e/eslint-plugin": "^0.6.0",
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.7.0",
+    "eslint": "^10.8.0",
     "eslint-plugin-html": "~8.1.4",
-    "globals": "^17.7.0",
+    "globals": "^17.9.0",
     "nodemon": "~3.1.14",
-    "prettier": "^3.9.5",
-    "stylelint": "~17.14.0",
+    "prettier": "^3.9.6",
+    "stylelint": "~17.14.1",
     "stylelint-config-standard": "~40.0.0"
   },
   "nodemonConfig": {
