@@ -1,13 +1,13 @@
 // replace no-js class with js class which allows us to write css that targets non-js or js enabled users separately
 document.body.classList.replace("no-js", "js");
 
-const routePrefix = document
-  .querySelector("meta[name='routePrefix']")
+const basePath = document
+  .querySelector("meta[name='basePath']")
   .getAttribute("content");
 
 async function run() {
   const { Chart } = await import("chart.js/auto");
-  const data = await fetch(`${routePrefix}/products`).then((resp) => {
+  const data = await fetch(`${basePath}/products`).then((resp) => {
     return resp.json();
   });
 

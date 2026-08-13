@@ -88,7 +88,6 @@ app.get(getRoutePath(), async (req, reply) => {
       },
       products,
       avgDays,
-      routePrefix,
       basePath: routePrefix ? `/${routePrefix}` : "",
     });
   } catch (error) {
