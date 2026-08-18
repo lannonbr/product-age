@@ -7,9 +7,43 @@ const basePath = document
 
 async function run() {
   const { Chart } = await import("chart.js/auto");
+  const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
   const data = await fetch(`${basePath}/products`).then((resp) => {
     return resp.json();
   });
+
+  function getThemeColors() {
+    const styles = getComputedStyle(document.documentElement);
+
+    return {
+      grid: styles.getPropertyValue("--chart-grid-color").trim(),
+      text: styles.getPropertyValue("--text-color").trim(),
+    };
+  }
+
+  function chartOptions() {
+    const colors = getThemeColors();
+
+    return {
+      responsive: true,
+      maintainAspectRatio: true,
+      resizeDelay: 0,
+      scales: {
+        x: {
+          grid: { color: colors.grid },
+          ticks: { color: colors.text },
+        },
+        y: {
+          border: { color: colors.grid },
+          grid: { color: colors.grid },
+          ticks: { color: colors.text },
+        },
+      },
+      plugins: {
+        legend: { labels: { color: colors.text } },
+      },
+    };
+  }
 
   let groupByWeekPrice = new Map();
   let weekPriceVals = [
@@ -69,7 +103,7 @@ async function run() {
   }
 
   let weeklyCostChart = document.getElementById("weeklyCostChart");
-  new Chart(weeklyCostChart, {
+  let weeklyCostChartInstance = new Chart(weeklyCostChart, {
     type: "bar",
     data: {
       labels: [...groupByWeekPrice.keys()],
@@ -80,15 +114,11 @@ async function run() {
         },
       ],
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      resizeDelay: 0,
-    },
+    options: chartOptions(),
   });
 
   let ageChart = document.getElementById("ageChart");
-  new Chart(ageChart, {
+  let ageChartInstance = new Chart(ageChart, {
     type: "bar",
     data: {
       labels: [...groupByAge.keys()],
@@ -99,11 +129,14 @@ async function run() {
         },
       ],
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      resizeDelay: 0,
-    },
+    options: chartOptions(),
+  });
+
+  colorScheme.addEventListener("change", () => {
+    for (let chart of [weeklyCostChartInstance, ageChartInstance]) {
+      chart.options = chartOptions();
+      chart.update();
+    }
   });
 }
 

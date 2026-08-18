@@ -1,16 +1,42 @@
+:root {
+  color-scheme: light dark;
+
+  --page-background: #fff;
+  --text-color: #18181b;
+  --border-color: #18181b;
+  --table-header-background: #fff;
+  --anniversary-background: #4ade80;
+  --close-anniversary-background: #fff085;
+  --chart-grid-color: #d4d4d8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-background: #18181b;
+    --text-color: #f4f4f5;
+    --border-color: #a1a1aa;
+    --table-header-background: #18181b;
+    --anniversary-background: #166534;
+    --close-anniversary-background: #854d0e;
+    --chart-grid-color: #52525b;
+  }
+}
+
 body {
   font-family: sans-serif;
+  background-color: var(--page-background);
+  color: var(--text-color);
 }
 
 table {
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
   border-collapse: collapse;
 }
 
 table th {
   text-align: left;
   padding: 8px 32px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border-color);
 }
 
 table td {
@@ -18,11 +44,11 @@ table td {
 }
 
 tr.anniv {
-  background-color: #4ade80;
+  background-color: var(--anniversary-background);
 }
 
 tr.close {
-  background-color: #fff085;
+  background-color: var(--close-anniversary-background);
 }
 
 header,
@@ -95,7 +121,7 @@ header,
   #tableContainer table thead th {
     position: sticky;
     top: 0;
-    background-color: white;
+    background-color: var(--table-header-background);
   }
 
   #tableContainer td {
